@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { Request, Response } from 'express';
-
-import App from '../../index';
-import { ServerHTML } from './serverHTML';
 import path from 'path';
 import fs from 'fs/promises';
 
-export default async function (req: Request, res: Response) {
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+
+import { Request, Response } from 'express';
+
+import App from '../../app';
+import { ServerHTML } from './serverHTML';
+
+export default async function (_: Request, res: Response) {
   try {
     const manifestFilePath = path.resolve(
       process.cwd(),
