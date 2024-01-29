@@ -9,11 +9,11 @@ dependencies:
     specifier: ^4.18.2
     version: 4.18.2
   react:
-    specifier: ^18.2.0
-    version: 18.2.0
+    specifier: 18.3.0-canary-763612647-20240126
+    version: 18.3.0-canary-763612647-20240126
   react-dom:
-    specifier: ^18.2.0
-    version: 18.2.0(react@18.2.0)
+    specifier: 18.3.0-canary-763612647-20240126
+    version: 18.3.0-canary-763612647-20240126(react@18.3.0-canary-763612647-20240126)
 
 devDependencies:
   '@babel/cli':
@@ -61,6 +61,9 @@ devDependencies:
   mini-css-extract-plugin:
     specifier: ^2.7.7
     version: 2.7.7(webpack@5.90.0)
+  react-server-dom-webpack:
+    specifier: 0.0.0-experimental-763612647-20240126
+    version: 0.0.0-experimental-763612647-20240126(react-dom@18.3.0-canary-763612647-20240126)(react@18.3.0-canary-763612647-20240126)(webpack@5.90.0)
   style-loader:
     specifier: ^3.3.4
     version: 3.3.4(webpack@5.90.0)
@@ -2009,6 +2012,13 @@ packages:
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
     peerDependencies:
       acorn: ^8
+    dependencies:
+      acorn: 8.11.3
+    dev: true
+
+  /acorn-loose@8.4.0:
+    resolution: {integrity: sha512-M0EUka6rb+QC4l9Z3T0nJEzNOO7JcoJlYMrBlyBCiFSXRyxjLKayd4TbQs2FDRWQU1h9FR7QVNHt+PEaoNL5rQ==}
+    engines: {node: '>=0.4.0'}
     dependencies:
       acorn: 8.11.3
     dev: true
@@ -4043,7 +4053,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
 
   /lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -4529,26 +4538,40 @@ packages:
       unpipe: 1.0.0
     dev: false
 
-  /react-dom@18.2.0(react@18.2.0):
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+  /react-dom@18.3.0-canary-763612647-20240126(react@18.3.0-canary-763612647-20240126):
+    resolution: {integrity: sha512-EANEcwfNB28TZJdJMoEAVbYALbvRwxlukJNWmd0FV6+mngBZ4jY98EpE7Mm0rRZ3X3bC4igaUuN8ydikK1qzrQ==}
     peerDependencies:
-      react: ^18.2.0
+      react: 18.3.0-canary-763612647-20240126
     dependencies:
       loose-envify: 1.4.0
-      react: 18.2.0
-      scheduler: 0.23.0
-    dev: false
+      react: 18.3.0-canary-763612647-20240126
+      scheduler: 0.24.0-canary-763612647-20240126
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+  /react-server-dom-webpack@0.0.0-experimental-763612647-20240126(react-dom@18.3.0-canary-763612647-20240126)(react@18.3.0-canary-763612647-20240126)(webpack@5.90.0):
+    resolution: {integrity: sha512-9YAekxaBve9zpfw0SK//pGe2tFLOWjErdrW0G1Tk3kH/x5b7MWZf2QPMAtdF3q4SNOOFAtd3mxFA4TfC6vvkNw==}
+    engines: {node: '>=0.10.0'}
+    peerDependencies:
+      react: 0.0.0-experimental-763612647-20240126
+      react-dom: 0.0.0-experimental-763612647-20240126
+      webpack: ^5.59.0
+    dependencies:
+      acorn-loose: 8.4.0
+      loose-envify: 1.4.0
+      neo-async: 2.6.2
+      react: 18.3.0-canary-763612647-20240126
+      react-dom: 18.3.0-canary-763612647-20240126(react@18.3.0-canary-763612647-20240126)
+      webpack: 5.90.0(webpack-cli@4.10.0)
+    dev: true
+
+  /react@18.3.0-canary-763612647-20240126:
+    resolution: {integrity: sha512-U+tNAsJ2TUDwiewGlyojBLX9/JTVMXLQrASguDzVDhX0vGqgxoK1T//gaMhDBbdcCXkEnuUNMGzV20GzxB4EdA==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
@@ -4691,11 +4714,10 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: false
 
-  /scheduler@0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+  /scheduler@0.24.0-canary-763612647-20240126:
+    resolution: {integrity: sha512-YF/wQ+lgzytZBpva12X2jI2hyH+BwNpKoiVfFWIARzGPgfykqw8U5coMCjddFZoy1Q2LPz+EXwZd37FTb7ZR/w==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /schema-utils@2.7.1:
     resolution: {integrity: sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg==}
