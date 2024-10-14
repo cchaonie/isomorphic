@@ -1,28 +1,36 @@
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const isProd = process.env.NODE_ENV == 'production';
 const ROOT_DIR = process.cwd();
 
 export default {
-  entry: path.join(ROOT_DIR, './src/client/index.tsx'),
+  entry: path.join(ROOT_DIR, './src/server/index.ts'),
   output: {
-    filename: '[name].js',
-    path: path.resolve(ROOT_DIR, 'dist/client'),
-    publicPath: 'http://localhost:9000/',
+    filename: 'index.js',
+    path: path.resolve(ROOT_DIR, 'dist/server'),
   },
   mode: isProd ? 'production' : 'development',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'css'],
   },
+  target: 'node',
   devtool: isProd ? false : 'inline-source-map',
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 20000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+    },
+  },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /(node_modules)/,
+        exclude: path.resolve(ROOT_DIR, './node_modules'),
         use: {
           loader: 'babel-loader',
         },
@@ -30,15 +38,14 @@ export default {
       {
         test: /\.css?$/,
         use: [
-          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
-              modules: {
-                
-              },
+              modules: false,
             },
           },
+          'postcss-loader',
         ],
       },
     ],
@@ -46,6 +53,5 @@ export default {
   plugins: [
     new CleanWebpackPlugin(),
     new WebpackManifestPlugin({ writeToFileEmit: true }),
-    new MiniCssExtractPlugin(),
   ],
 };

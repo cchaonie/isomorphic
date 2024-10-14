@@ -5,8 +5,8 @@ import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 
-import clientConfig from '../../config/webpack.client';
-import serverConfig from '../../config/webpack.server';
+import clientConfig from '../../configs/webpack.client';
+import serverConfig from '../../configs/webpack.server';
 
 const clientCompiler = webpack(clientConfig as webpack.Configuration);
 const serverCompiler = webpack(serverConfig as webpack.Configuration);
@@ -16,7 +16,7 @@ const ROOT_DIR = process.cwd();
 let currentNodeServer = null;
 
 serverCompiler.watch({}, (err, stats) => {
-  console.log('[server] detecting changes', stats.toJson("summary"));
+  console.log('[server] detecting changes', stats.toJson('summary'));
 });
 
 serverCompiler.hooks.done.tap('server compiled finished', stats => {
