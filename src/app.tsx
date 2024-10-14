@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './index.css';
+import * as styles from './index.css';
 
 export default function App() {
   const [hidden, setHidden] = useState(false);
